@@ -1,0 +1,10 @@
+title: "LevelTwo"
+description: "موقعي على GitHub Pages"
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-include-cache
+paginate: 5
