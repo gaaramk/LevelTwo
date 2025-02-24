@@ -148,7 +148,7 @@ header {
 }
 
 
-@media (max-width: 992px) {
+@media (max-width: 996px) {
   .navbar .links {
     background-color: #000;
     width: 100%;
