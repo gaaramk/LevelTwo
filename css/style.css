@@ -79,7 +79,7 @@ a {
 .navbar .links li {
   display: inline-block;
   font-weight: bold;
-  margin: 1.25rem;
+  margin: 0.75rem;
   text-transform: capitalize;
   border-bottom: 2px solid transparent;
   transition: var(--duration);
