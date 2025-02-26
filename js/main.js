@@ -1,6 +1,30 @@
 $(function () {
   "use strict";
 
+  //   ! start navigation bar
+
+  //   links active
+  $(".links li a").on("click", function () {
+    $(this).parent().addClass("active").siblings().removeClass("active");
+  });
+
+  //   menu toggle
+  $(".menuToggle").on("click", function () {
+    $(".links").slideToggle(500);
+  });
+
+  //   smooth scroll
+  $(".links li a").on("click", function () {
+    $("html , body").animate(
+      {
+        scrollTop: $("#" + $(this).data("value")).offset().top,
+      },
+      1000
+    );
+  });
+
+  // ! end navigation bar
+
   //! start header
 
   let myHeader = $("header");
@@ -24,18 +48,4 @@ $(function () {
   });
 
   //! end header
-
-  //   ! start navigation bar
-
-  //   links active
-  $(".links li").on("click", function () {
-    $(this).addClass("active").siblings().removeClass("active");
-  });
-
-  //   menu toggle
-  $(".menuToggle").on("click", function () {
-    $(".links").slideToggle(500);
-  });
-
-  // ! end navigation bar
 });

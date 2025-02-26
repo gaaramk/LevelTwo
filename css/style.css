@@ -1,8 +1,10 @@
 /* start global */
 :root {
   --main-color: #1abc9c;
-
+  --shadow-color: #2c3e50;
+  --p-color: #2e2e2e;
   --duration: all 0.3s ease-in-out;
+  --spacing: 3.14159rem;
 }
 * {
   -webkit-box-sizing: border-box;
@@ -34,6 +36,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
 /* end global */
 
 /* start framework */
@@ -44,8 +50,59 @@ a {
   color: var(--main-color);
   border-bottom: 0.1875rem solid var(--main-color) !important;
 }
-.open {
-  display: block !important;
+.specialHeading {
+  position: relative;
+  text-transform: capitalize;
+  font-weight: normal;
+  padding-bottom: calc(var(--spacing) / 2) 0;
+  font-size: 2rem;
+}
+.specialHeading::after {
+  content: "";
+  position: absolute;
+  top: var(--spacing);
+  left: 0;
+  display: block;
+  width: 3rem;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  box-shadow: 0 0 5px var(--shadow-color);
+  -webkit-box-shadow: 0 0 5px var(--shadow-color);
+  -moz-box-shadow: 0 0 5px var(--shadow-color);
+  -ms-box-shadow: 0 0 5px var(--shadow-color);
+  -o-box-shadow: 0 0 5px var(--shadow-color);
+}
+.specialHeading span {
+  color: var(--main-color);
+}
+
+.justify {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  line-height: 1.7;
+  font-size: 1.125rem;
+  color: var(--p-color);
+}
+
+.Imgoverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 188, 156, 0.6);
+  color: #fff;
+  text-align: center;
+  line-height: 227.42px;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 /* end framework */
 
@@ -104,7 +161,7 @@ a {
 /* end navbar */
 
 /* start header */
-header {  
+header {
   background-image: url(../images/head.jpg);
   background-size: cover;
   background-position: center;
@@ -112,7 +169,7 @@ header {
   position: relative;
 }
 
-.owl-carousel{
+.owl-carousel {
   position: relative;
   top: 60%;
   left: 50%;
@@ -123,32 +180,116 @@ header {
   -o-transform: translate(-50%, -50%);
 }
 
-.owl-carousel div{
+.owl-carousel div {
   text-align: center;
   border: none !important;
-  color: #FFF !important;
+  color: #fff !important;
   /* background-color: #1abc9c; */
 }
-.owl-carousel div h2{
+.owl-carousel div h2 {
   font-size: 3.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
   text-transform: capitalize;
 }
-.owl-carousel div h2 span{
+.owl-carousel div h2 span {
   color: var(--main-color);
 }
 /* end header */
 
+/* start services */
+.services {
+  padding-block: var(--spacing);
+}
+.services .servicesContent {
+  padding-top: var(--spacing);
+}
+.services .servicesBox {
+  float: left;
+  width: 33.3333%;
+  padding: calc(var(--spacing) / 2);
+}
+.services .servicesBox svg {
+  color: var(--main-color);
+  float: left;
+  width: 15%;
+  margin-right: calc(var(--spacing) / 2);
+}
+.services .servicesBox .info {
+  float: left;
+  width: 75%;
+}
+.services .servicesBox .info h3 {
+  margin: calc(var(--spacing) / 3) 0;
+  text-transform: capitalize;
+}
+.services .servicesBox .info p {
+  color: var(--p-color);
+}
+/* end services */
+
+/* start our team */
+.ourTeam {
+  padding-block: var(--spacing);
+}
+.ourTeam .teamBox {
+  float: left;
+}
+.ourTeam .teamBox h2 {
+  padding-bottom: calc(var(--spacing) / 2);
+}
+.ourTeam .teamBox p {
+  text-align: left;
+  padding-block: calc(var(--spacing) / 2);
+}
+.ourTeam .teamBox:first-child {
+  width: 35%;
+  text-align: left;
+}
+.ourTeam .teamBox:not(:first-child) {
+  width: 15.25%;
+  margin-left: 1%;
+  position: relative;
+  transition: var(--duration);
+  -webkit-transition: var(--duration);
+  -moz-transition: var(--duration);
+  -ms-transition: var(--duration);
+  -o-transition: var(--duration);
+}
+.ourTeam .teamBox:not(:first-child) .Imgoverlay {
+  display: none;
+}
+
+.ourTeam .teamBox:not(:first-child):hover .Imgoverlay {
+  display: block;
+}
+
+/* end our team */
+
 /* start media query */
 @media (max-width: 768px) {
-  .owl-carousel div h2{
+  .owl-carousel div h2 {
     font-size: 2rem;
+  }
+  .services .servicesBox {
+    width: 100%;
+  }
+  .ourTeam .teamBox {
+    float: none;
+  }
+  .ourTeam .teamBox:first-child {
+    width: 100%;
+  }
+  .ourTeam .teamBox:not(:first-child) {
+    width: 100%;
+  }
+  .Imgoverlay {
+    font-size: 42px;
+    line-height: 454.06px;
   }
 }
 
-
-@media (max-width: 996px) {
+@media (max-width: 992px) {
   .navbar .links {
     background-color: #000;
     width: 100%;
@@ -161,6 +302,10 @@ header {
   }
   .navbar .menuToggle {
     display: block;
+  }
+  .Imgoverlay {
+    font-size: 18px;
+    line-height: 148.01px;
   }
 }
 /* end media query */
